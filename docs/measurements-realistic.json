@@ -1,0 +1,3756 @@
+{
+  "started_at": "2026-09-28T07:54:42Z",
+  "machine": {
+    "uname": "Linux bench 6.12.94+ #1 SMP PREEMPT_DYNAMIC Thu Sep 24 16:04:37 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+    "nproc": "4",
+    "cpu": "Intel(R) Xeon(R) Processor",
+    "meminfo": "MemTotal:       16398384 kB\nMemAvailable:    6955436 kB\nSwapTotal:             0 kB",
+    "os": "Ubuntu 24.04.4 LTS (Noble Numbat)",
+    "java": "openjdk version \"21.0.10\" 2026-01-20\nOpenJDK Runtime Environment (build 21.0.10+7-Ubuntu-124.04)\nOpenJDK 64-Bit Server VM (build 21.0.10+7-Ubuntu-124.04, mixed mode, sharing)",
+    "python": "Python 3.12.3",
+    "docker": "Server=29.1.3 Driver=vfs NCPU=4 MemTotal=16791945216",
+    "disk": "overlay         126G   27G   93G  23% /"
+  },
+  "runs": {
+    "smoke": {
+      "watermark_mode": "punctuated",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 8000,
+      "job_id": "5ebd00f7bc0de2f56d426d0366e38fc2",
+      "replay": {
+        "run_id": "smoke",
+        "topic": "events-smoke",
+        "mode": "paced",
+        "produced": 3006,
+        "planned": 3016,
+        "kicks": 3,
+        "elapsed_s": 0.354,
+        "produce_rate": 8531.82,
+        "speedup": 8000.0,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 2848,
+            "duplicate": 6,
+            "jitter": 141,
+            "malformed": 10,
+            "late": 11
+          },
+          "malformed_kinds": {
+            "bad_json": 2,
+            "bad_user": 2,
+            "bad_behavior": 2,
+            "bad_time": 2,
+            "empty": 2
+          },
+          "planned": 3016
+        },
+        "max_behind_s": 0.207,
+        "input_rows": 3000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572567588000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "3006",
+          "windows": "2",
+          "late": "2"
+        },
+        "polls": 4
+      },
+      "e2e_s": 25.043,
+      "e2e_events_per_s": 120.03,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 0,
+          "total": 2,
+          "in_progress": 0,
+          "completed": 2,
+          "failed": 0
+        },
+        "completed": {
+          "id": 2,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 28,
+          "state_size_bytes": 185467,
+          "checkpointed_size_bytes": 185467
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 2,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790582150515,
+          "latest_ack_timestamp": 1790582150543,
+          "checkpointed_size": 185467,
+          "state_size": 185467,
+          "end_to_end_duration": 28,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/5ebd00f7bc0de2f56d426d0366e38fc2/chk-2",
+          "discarded": false
+        }
+      },
+      "rt_summary": {
+        "windows": 2,
+        "late": {
+          "late_events": "2",
+          "late_pv": "2"
+        },
+        "duplicates": {
+          "duplicate_events": "7"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "7",
+          "duplicate_pv": "7"
+        },
+        "ods_physical": {
+          "physical": "6006"
+        },
+        "ods_final": {
+          "final_rows": "3006"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "2"
+          },
+          {
+            "reason": "bad_time",
+            "c": "2"
+          },
+          {
+            "reason": "bad_user",
+            "c": "2"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "2"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "7",
+          "duplicate_pv": "7"
+        }
+      },
+      "accuracy": {
+        "note": "冒烟只回放文件前缀，不和全量离线结果比"
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 95.84,
+            "mem_at_max_cpu": "346.2MiB / 1.5GiB",
+            "samples": 1
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.03,
+            "mem_at_max_cpu": "75.19MiB / 384MiB",
+            "samples": 1
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 6.0,
+            "mem_at_max_cpu": "325.3MiB / 900MiB",
+            "samples": 1
+          },
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 1.73,
+            "mem_at_max_cpu": "297MiB / 1GiB",
+            "samples": 1
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 11.62,
+            "mem_at_max_cpu": "286.6MiB / 768MiB",
+            "samples": 1
+          }
+        },
+        "sample_count": 1
+      }
+    },
+    "pace-before": {
+      "watermark_mode": "punctuated",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 287.6666666666667,
+      "job_id": "7d3408bf2bba8e64f69bf9015ff484f2",
+      "replay": {
+        "run_id": "pace-before",
+        "topic": "events-pace-before",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 151.862,
+        "produce_rate": 4618.7,
+        "speedup": 287.666667,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.133,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "1524"
+        },
+        "polls": 5
+      },
+      "e2e_s": 174.329,
+      "e2e_events_per_s": 4023.16,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 0,
+          "total": 17,
+          "in_progress": 0,
+          "completed": 17,
+          "failed": 0
+        },
+        "completed": {
+          "id": 17,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 357,
+          "state_size_bytes": 31846069,
+          "checkpointed_size_bytes": 31846069
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 17,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790582342994,
+          "latest_ack_timestamp": 1790582343351,
+          "checkpointed_size": 31846069,
+          "state_size": 31846069,
+          "end_to_end_duration": 357,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/7d3408bf2bba8e64f69bf9015ff484f2/chk-17",
+          "discarded": false
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "1524",
+          "late_pv": "1475"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 68,
+            "sum_abs_diff": 420.0,
+            "max_abs_diff": 23.0,
+            "sum_rt": 674838.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 171.0,
+            "max_abs_diff": 7.0,
+            "sum_rt": 211076.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 27,
+            "sum_abs_diff": 32.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 11347.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 31,
+            "sum_abs_diff": 42.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 13645.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 212.0,
+            "max_abs_diff": 15.0,
+            "sum_rt": 225191.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 171.0,
+            "max_abs_diff": 7.0,
+            "sum_rt": 211076.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 10,
+            "sum_abs_diff": 11.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 7738.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 14,
+            "sum_abs_diff": 19.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 12108.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 13,
+            "sum_abs_diff": 15.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 6785.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 10,
+            "sum_abs_diff": 12.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 3298.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 17,
+            "sum_abs_diff": 21.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 9128.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 164
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 674838.0,
+          "late_pv": 1475.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 674913.0,
+          "first_seen_batch": 674913.0,
+          "gap": 0.0,
+          "exact": true
+        }
+      },
+      "latency": {
+        "ods_overall": {
+          "n": "701354",
+          "min_ms": "6",
+          "p50_ms": "160",
+          "p99_ms": "292",
+          "max_ms": "342"
+        },
+        "ods_burst": {
+          "n": "105048",
+          "min_ms": "11",
+          "p50_ms": "172",
+          "p99_ms": "296",
+          "max_ms": "327"
+        },
+        "ods_quiet": {
+          "n": "237632",
+          "min_ms": "6",
+          "p50_ms": "170",
+          "p99_ms": "294",
+          "max_ms": "342"
+        },
+        "burst_seconds": 16,
+        "quiet_seconds": 77,
+        "burst_min_count": "6355",
+        "quiet_max_count": "5745",
+        "ingest_per_second": {
+          "seconds": "152",
+          "p50": "5745",
+          "avg": 4614.17,
+          "max": "6916"
+        },
+        "ads_freshness_exact": {
+          "windows": "72",
+          "min_ms": "98",
+          "p50_ms": "306",
+          "p99_ms": "830",
+          "max_ms": "830"
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 88.46,
+            "mem_at_max_cpu": "554.5MiB / 1.5GiB",
+            "samples": 3
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.13,
+            "mem_at_max_cpu": "75.55MiB / 384MiB",
+            "samples": 3
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 5.35,
+            "mem_at_max_cpu": "431.4MiB / 900MiB",
+            "samples": 3
+          },
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 13.1,
+            "mem_at_max_cpu": "398.8MiB / 1GiB",
+            "samples": 3
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 13.66,
+            "mem_at_max_cpu": "346MiB / 768MiB",
+            "samples": 3
+          }
+        },
+        "sample_count": 3
+      },
+      "backpressure": [
+        {
+          "name": "Source: kafka-events-pace-before -> scope-run -> validate -> Map -> Sink: sink-invalid",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "dedup -> (item-category-join -> drop-kicks -> (Filter, Filter, Map -> Sink: sink-ods), Map -> Sink: sink-duplicate)",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "item-window",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "top-n -> Sink: sink-topn",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "category-pv -> Sink: sink-category",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "user-window -> Map -> Sink: sink-late",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "pv-uv -> Sink: sink-pv-uv",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "funnel -> Sink: sink-funnel",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        }
+      ]
+    },
+    "pace-after": {
+      "watermark_mode": "periodic",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 287.6666666666667,
+      "job_id": "a660f6bd0ff37e4b0479f9f5f201ad81",
+      "replay": {
+        "run_id": "pace-after",
+        "topic": "events-pace-after",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 151.867,
+        "produce_rate": 4618.55,
+        "speedup": 287.666667,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.161,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "1387"
+        },
+        "polls": 5
+      },
+      "e2e_s": 174.468,
+      "e2e_events_per_s": 4019.96,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 0,
+          "total": 17,
+          "in_progress": 0,
+          "completed": 17,
+          "failed": 0
+        },
+        "completed": {
+          "id": 17,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 440,
+          "state_size_bytes": 31846066,
+          "checkpointed_size_bytes": 31846066
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 17,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790584364534,
+          "latest_ack_timestamp": 1790584364974,
+          "checkpointed_size": 31846066,
+          "state_size": 31846066,
+          "end_to_end_duration": 440,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/a660f6bd0ff37e4b0479f9f5f201ad81/chk-17",
+          "discarded": false
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "1387",
+          "late_pv": "1342"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 66,
+            "sum_abs_diff": 391.0,
+            "max_abs_diff": 23.0,
+            "sum_rt": 674971.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 55,
+            "sum_abs_diff": 161.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211086.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 28,
+            "sum_abs_diff": 34.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 11349.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 30,
+            "sum_abs_diff": 40.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 13647.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 54,
+            "sum_abs_diff": 212.0,
+            "max_abs_diff": 14.0,
+            "sum_rt": 225241.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 55,
+            "sum_abs_diff": 161.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211086.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 9,
+            "sum_abs_diff": 10.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 7739.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 13,
+            "sum_abs_diff": 17.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 12110.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 14.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 6786.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 9,
+            "sum_abs_diff": 11.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 3299.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 15.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 9134.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 155
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 674971.0,
+          "late_pv": 1342.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 674913.0,
+          "first_seen_batch": 674913.0,
+          "gap": 0.0,
+          "exact": true
+        }
+      },
+      "latency": {
+        "ods_overall": {
+          "n": "701354",
+          "min_ms": "7",
+          "p50_ms": "157",
+          "p99_ms": "294",
+          "max_ms": "367"
+        },
+        "ods_burst": {
+          "n": "106622",
+          "min_ms": "9",
+          "p50_ms": "156",
+          "p99_ms": "296",
+          "max_ms": "324"
+        },
+        "ods_quiet": {
+          "n": "231019",
+          "min_ms": "7",
+          "p50_ms": "168",
+          "p99_ms": "291",
+          "max_ms": "331"
+        },
+        "burst_seconds": 16,
+        "quiet_seconds": 77,
+        "burst_min_count": "6353",
+        "quiet_max_count": "5678",
+        "ingest_per_second": {
+          "seconds": "153",
+          "p50": "5678",
+          "avg": 4584.01,
+          "max": "7448"
+        },
+        "ads_freshness_exact": {
+          "windows": "72",
+          "min_ms": "63",
+          "p50_ms": "308",
+          "p99_ms": "997",
+          "max_ms": "997"
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 11.51,
+            "mem_at_max_cpu": "938.2MiB / 3GiB",
+            "samples": 3
+          },
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 29.48,
+            "mem_at_max_cpu": "680MiB / 1.5GiB",
+            "samples": 3
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.14,
+            "mem_at_max_cpu": "61.42MiB / 384MiB",
+            "samples": 3
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 1.29,
+            "mem_at_max_cpu": "644.5MiB / 900MiB",
+            "samples": 3
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 5.68,
+            "mem_at_max_cpu": "448.4MiB / 768MiB",
+            "samples": 3
+          }
+        },
+        "sample_count": 3
+      },
+      "backpressure": [
+        {
+          "name": "Source: kafka-events-pace-after -> scope-run -> validate -> Map -> Sink: sink-invalid",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "dedup -> (item-category-join -> drop-kicks -> (Filter, Filter, Map -> Sink: sink-ods), Map -> Sink: sink-duplicate)",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "item-window",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "top-n -> Sink: sink-topn",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "category-pv -> Sink: sink-category",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "user-window -> Map -> Sink: sink-late",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "pv-uv -> Sink: sink-pv-uv",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "funnel -> Sink: sink-funnel",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        }
+      ]
+    },
+    "fast-before": {
+      "watermark_mode": "punctuated",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 616.4285714285714,
+      "job_id": "55a028e908c60ef6ddba2622ff34bfde",
+      "replay": {
+        "run_id": "fast-before",
+        "topic": "events-fast-before",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 70.891,
+        "produce_rate": 9894.1,
+        "speedup": 616.428571,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.155,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "1453"
+        },
+        "polls": 4
+      },
+      "e2e_s": 88.493,
+      "e2e_events_per_s": 7925.53,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 0,
+          "total": 9,
+          "in_progress": 0,
+          "completed": 9,
+          "failed": 0
+        },
+        "completed": {
+          "id": 9,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 361,
+          "state_size_bytes": 31846069,
+          "checkpointed_size_bytes": 31846069
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 9,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790584479630,
+          "latest_ack_timestamp": 1790584479991,
+          "checkpointed_size": 31846069,
+          "state_size": 31846069,
+          "end_to_end_duration": 361,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/55a028e908c60ef6ddba2622ff34bfde/chk-9",
+          "discarded": false
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "1453",
+          "late_pv": "1411"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 66,
+            "sum_abs_diff": 426.0,
+            "max_abs_diff": 23.0,
+            "sum_rt": 674902.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 164.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211083.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 27,
+            "sum_abs_diff": 33.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 11350.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 29,
+            "sum_abs_diff": 38.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 13649.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 55,
+            "sum_abs_diff": 216.0,
+            "max_abs_diff": 14.0,
+            "sum_rt": 225217.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 164.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211083.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 8,
+            "sum_abs_diff": 9.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 7740.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 13,
+            "sum_abs_diff": 16.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 12111.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 11,
+            "sum_abs_diff": 13.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 6787.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 9,
+            "sum_abs_diff": 11.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 3299.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 16,
+            "sum_abs_diff": 19.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 9130.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 161
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 674902.0,
+          "late_pv": 1411.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 674913.0,
+          "first_seen_batch": 674913.0,
+          "gap": 0.0,
+          "exact": true
+        }
+      },
+      "latency": {
+        "ods_overall": {
+          "n": "701354",
+          "min_ms": "9",
+          "p50_ms": "122",
+          "p99_ms": "268",
+          "max_ms": "392"
+        },
+        "ods_burst": {
+          "n": "115521",
+          "min_ms": "11",
+          "p50_ms": "110",
+          "p99_ms": "258",
+          "max_ms": "299"
+        },
+        "ods_quiet": {
+          "n": "234469",
+          "min_ms": "9",
+          "p50_ms": "141",
+          "p99_ms": "277",
+          "max_ms": "392"
+        },
+        "burst_seconds": 8,
+        "quiet_seconds": 37,
+        "burst_min_count": "13790",
+        "quiet_max_count": "11932",
+        "ingest_per_second": {
+          "seconds": "72",
+          "p50": "11932",
+          "avg": 9741.03,
+          "max": "15505"
+        },
+        "ads_freshness_exact": {
+          "windows": "72",
+          "min_ms": "39",
+          "p50_ms": "254",
+          "p99_ms": "656",
+          "max_ms": "656"
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 27.5,
+            "mem_at_max_cpu": "1023MiB / 3GiB",
+            "samples": 3
+          },
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 23.21,
+            "mem_at_max_cpu": "646.9MiB / 1.5GiB",
+            "samples": 3
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.05,
+            "mem_at_max_cpu": "61.45MiB / 384MiB",
+            "samples": 3
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 0.66,
+            "mem_at_max_cpu": "606.7MiB / 900MiB",
+            "samples": 3
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 4.75,
+            "mem_at_max_cpu": "528MiB / 768MiB",
+            "samples": 3
+          }
+        },
+        "sample_count": 3
+      },
+      "backpressure": [
+        {
+          "name": "Source: kafka-events-fast-before -> scope-run -> validate -> Map -> Sink: sink-invalid",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "dedup -> (item-category-join -> drop-kicks -> (Filter, Filter, Map -> Sink: sink-ods), Map -> Sink: sink-duplicate)",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "item-window",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "top-n -> Sink: sink-topn",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "category-pv -> Sink: sink-category",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "user-window -> Map -> Sink: sink-late",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "pv-uv -> Sink: sink-pv-uv",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "funnel -> Sink: sink-funnel",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "fast-after": {
+      "watermark_mode": "periodic",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 616.4285714285714,
+      "job_id": "d75bfa4f5614fcd4fbf53425a0e7750a",
+      "replay": {
+        "run_id": "fast-after",
+        "topic": "events-fast-after",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 70.887,
+        "produce_rate": 9894.68,
+        "speedup": 616.428571,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.153,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "1119"
+        },
+        "polls": 5
+      },
+      "e2e_s": 93.466,
+      "e2e_events_per_s": 7503.84,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 0,
+          "total": 9,
+          "in_progress": 0,
+          "completed": 9,
+          "failed": 0
+        },
+        "completed": {
+          "id": 9,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 356,
+          "state_size_bytes": 31846066,
+          "checkpointed_size_bytes": 31846066
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 9,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790584585824,
+          "latest_ack_timestamp": 1790584586180,
+          "checkpointed_size": 31846066,
+          "state_size": 31846066,
+          "end_to_end_duration": 356,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/d75bfa4f5614fcd4fbf53425a0e7750a/chk-9",
+          "discarded": false
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "1119",
+          "late_pv": "1086"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 65,
+            "sum_abs_diff": 429.0,
+            "max_abs_diff": 23.0,
+            "sum_rt": 675227.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 50,
+            "sum_abs_diff": 128.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211119.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 26,
+            "sum_abs_diff": 31.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 11352.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 28,
+            "sum_abs_diff": 35.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 13656.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 60,
+            "sum_abs_diff": 211.0,
+            "max_abs_diff": 14.0,
+            "sum_rt": 225328.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 50,
+            "sum_abs_diff": 128.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211119.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 8,
+            "sum_abs_diff": 9.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 7740.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 9,
+            "sum_abs_diff": 9.0,
+            "max_abs_diff": 1.0,
+            "sum_rt": 12118.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 10,
+            "sum_abs_diff": 12.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 6788.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 6,
+            "sum_abs_diff": 6.0,
+            "max_abs_diff": 1.0,
+            "sum_rt": 3304.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 10,
+            "sum_abs_diff": 10.0,
+            "max_abs_diff": 1.0,
+            "sum_rt": 9139.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 148
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 675227.0,
+          "late_pv": 1086.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 674913.0,
+          "first_seen_batch": 674913.0,
+          "gap": 0.0,
+          "exact": true
+        }
+      },
+      "latency": {
+        "ods_overall": {
+          "n": "701354",
+          "min_ms": "9",
+          "p50_ms": "124",
+          "p99_ms": "285",
+          "max_ms": "379"
+        },
+        "ods_burst": {
+          "n": "113910",
+          "min_ms": "13",
+          "p50_ms": "108",
+          "p99_ms": "265",
+          "max_ms": "309"
+        },
+        "ods_quiet": {
+          "n": "237333",
+          "min_ms": "9",
+          "p50_ms": "151",
+          "p99_ms": "297",
+          "max_ms": "379"
+        },
+        "burst_seconds": 8,
+        "quiet_seconds": 37,
+        "burst_min_count": "13654",
+        "quiet_max_count": "12181",
+        "ingest_per_second": {
+          "seconds": "72",
+          "p50": "12181",
+          "avg": 9741.03,
+          "max": "16208"
+        },
+        "ads_freshness_exact": {
+          "windows": "72",
+          "min_ms": "46",
+          "p50_ms": "313",
+          "p99_ms": "715",
+          "max_ms": "715"
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 32.07,
+            "mem_at_max_cpu": "1.05GiB / 3GiB",
+            "samples": 3
+          },
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 22.06,
+            "mem_at_max_cpu": "648.8MiB / 1.5GiB",
+            "samples": 3
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 1.6,
+            "mem_at_max_cpu": "61.26MiB / 384MiB",
+            "samples": 3
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 0.8,
+            "mem_at_max_cpu": "625.2MiB / 900MiB",
+            "samples": 3
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 3.83,
+            "mem_at_max_cpu": "549.1MiB / 768MiB",
+            "samples": 3
+          }
+        },
+        "sample_count": 3
+      },
+      "backpressure": [
+        {
+          "name": "Source: kafka-events-fast-after -> scope-run -> validate -> Map -> Sink: sink-invalid",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "dedup -> (item-category-join -> drop-kicks -> (Filter, Filter, Map -> Sink: sink-ods), Map -> Sink: sink-duplicate)",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "item-window",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "top-n -> Sink: sink-topn",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "category-pv -> Sink: sink-category",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "user-window -> Map -> Sink: sink-late",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "pv-uv -> Sink: sink-pv-uv",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "funnel -> Sink: sink-funnel",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "fast-sink": {
+      "watermark_mode": "punctuated",
+      "batch_size": 4000,
+      "flush_ms": 500,
+      "speedup": 616.4285714285714,
+      "job_id": "deda351c0e69b848a997dd123adb07d8",
+      "replay": {
+        "run_id": "fast-sink",
+        "topic": "events-fast-sink",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 70.886,
+        "produce_rate": 9894.78,
+        "speedup": 616.428571,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.148,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "1453"
+        },
+        "polls": 5
+      },
+      "e2e_s": 93.358,
+      "e2e_events_per_s": 7512.52,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 0,
+          "total": 9,
+          "in_progress": 0,
+          "completed": 9,
+          "failed": 0
+        },
+        "completed": {
+          "id": 9,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 447,
+          "state_size_bytes": 31846063,
+          "checkpointed_size_bytes": 31846063
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 9,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790583440417,
+          "latest_ack_timestamp": 1790583440864,
+          "checkpointed_size": 31846063,
+          "state_size": 31846063,
+          "end_to_end_duration": 447,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/deda351c0e69b848a997dd123adb07d8/chk-9",
+          "discarded": false
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "1453",
+          "late_pv": "1406"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 65,
+            "sum_abs_diff": 409.0,
+            "max_abs_diff": 23.0,
+            "sum_rt": 674907.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 166.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211081.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 28,
+            "sum_abs_diff": 33.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 11348.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 30,
+            "sum_abs_diff": 41.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 13646.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 60,
+            "sum_abs_diff": 209.0,
+            "max_abs_diff": 9.0,
+            "sum_rt": 225218.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 166.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 211081.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 9,
+            "sum_abs_diff": 10.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 7739.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 14,
+            "sum_abs_diff": 19.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 12108.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 15.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 6785.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 10,
+            "sum_abs_diff": 12.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 3298.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 18,
+            "sum_abs_diff": 22.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 9127.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 161
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 674907.0,
+          "late_pv": 1406.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 674913.0,
+          "first_seen_batch": 674913.0,
+          "gap": 0.0,
+          "exact": true
+        }
+      },
+      "latency": {
+        "ods_overall": {
+          "n": "701354",
+          "min_ms": "16",
+          "p50_ms": "306",
+          "p99_ms": "584",
+          "max_ms": "696"
+        },
+        "ods_burst": {
+          "n": "112742",
+          "min_ms": "24",
+          "p50_ms": "290",
+          "p99_ms": "569",
+          "max_ms": "626"
+        },
+        "ods_quiet": {
+          "n": "237771",
+          "min_ms": "16",
+          "p50_ms": "321",
+          "p99_ms": "594",
+          "max_ms": "696"
+        },
+        "burst_seconds": 8,
+        "quiet_seconds": 36,
+        "burst_min_count": "13809",
+        "quiet_max_count": "12365",
+        "ingest_per_second": {
+          "seconds": "71",
+          "p50": "12365",
+          "avg": 9878.23,
+          "max": "14832"
+        },
+        "ads_freshness_exact": {
+          "windows": "72",
+          "min_ms": "130",
+          "p50_ms": "435",
+          "p99_ms": "747",
+          "max_ms": "747"
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 19.38,
+            "mem_at_max_cpu": "1.346GiB / 3GiB",
+            "samples": 3
+          },
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 18.59,
+            "mem_at_max_cpu": "653.3MiB / 1.5GiB",
+            "samples": 3
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.05,
+            "mem_at_max_cpu": "61.33MiB / 384MiB",
+            "samples": 3
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 15.2,
+            "mem_at_max_cpu": "621.4MiB / 900MiB",
+            "samples": 3
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 3.46,
+            "mem_at_max_cpu": "557.7MiB / 768MiB",
+            "samples": 3
+          }
+        },
+        "sample_count": 3
+      },
+      "backpressure": [
+        {
+          "name": "Source: kafka-events-fast-sink -> scope-run -> validate -> Map -> Sink: sink-invalid",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "dedup -> (item-category-join -> drop-kicks -> (Filter, Filter, Map -> Sink: sink-ods), Map -> Sink: sink-duplicate)",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "item-window",
+          "status": "deprecated",
+          "backpressure-level": null,
+          "subtasks": []
+        },
+        {
+          "name": "top-n -> Sink: sink-topn",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "category-pv -> Sink: sink-category",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "user-window -> Map -> Sink: sink-late",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "pv-uv -> Sink: sink-pv-uv",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        },
+        {
+          "name": "funnel -> Sink: sink-funnel",
+          "status": "ok",
+          "backpressure-level": "ok",
+          "subtasks": [
+            {
+              "subtask": 0,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            },
+            {
+              "subtask": 1,
+              "backpressure-level": "ok",
+              "ratio": 0.0,
+              "idleRatio": 1.0,
+              "busyRatio": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "chaos-tm": {
+      "watermark_mode": "punctuated",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 287.6666666666667,
+      "job_id": "3c9d39150a641b9dc22eb59d03a2c659",
+      "chaos_kind": "tm",
+      "checkpoint_before": {
+        "completed": 3,
+        "ods": 30857,
+        "brief": {
+          "counts": {
+            "restored": 0,
+            "total": 3,
+            "in_progress": 0,
+            "completed": 3,
+            "failed": 0
+          },
+          "completed": {
+            "id": 3,
+            "status": "COMPLETED",
+            "end_to_end_duration_ms": 24,
+            "state_size_bytes": 1417744,
+            "checkpointed_size_bytes": 1417744
+          },
+          "completed_raw": {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1790583488307,
+            "latest_ack_timestamp": 1790583488331,
+            "checkpointed_size": 1417744,
+            "state_size": 1417744,
+            "end_to_end_duration": 24,
+            "alignment_buffered": 0,
+            "processed_data": 37232,
+            "persisted_data": 0,
+            "num_subtasks": 16,
+            "num_acknowledged_subtasks": 16,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/3c9d39150a641b9dc22eb59d03a2c659/chk-3",
+            "discarded": false
+          }
+        }
+      },
+      "left_running_before_start": true,
+      "chaos": {
+        "poll_states": [
+          {
+            "after_s": 21.072,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 22.076,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 23.079,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 24.082,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 25.085,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 26.089,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 27.092,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 28.096,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 29.099,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 30.102,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 31.106,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 32.109,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 33.112,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 34.116,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 35.125,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 36.128,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 37.131,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 38.135,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 39.138,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 40.141,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 41.145,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 42.149,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 43.152,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 44.155,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 45.158,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 46.162,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 47.165,
+            "state": "RUNNING"
+          },
+          {
+            "after_s": 48.169,
+            "state": "RESTARTING"
+          },
+          {
+            "after_s": 52.416,
+            "state": "RESTARTING"
+          },
+          {
+            "after_s": 54.421,
+            "state": "RUNNING"
+          }
+        ],
+        "log": {
+          "restarting_cycles": 1,
+          "running_to_restarting": "2026-09-28T08:18:58.330274+00:00",
+          "job_restarting_to_running_s": 5.001,
+          "restarting_to_last_task_running_s": 6.652,
+          "restoring_line": "2026-09-28T08:19:03.332286088Z 2026-09-28 08:19:03,332 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job 3c9d39150a641b9dc22eb59d03a2c659 from Checkpoint 3 @ 1790583488307 for 3c9d39150a641b9dc22eb59d03a2c659 located at file:/opt/flink/checkpoints/3c9d39150a641b9dc22eb59d03a2c659/chk-3.",
+          "restarting_line": "2026-09-28T08:18:58.330274303Z 2026-09-28 08:18:58,330 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-tm (3c9d39150a641b9dc22eb59d03a2c659) switched from state RUNNING to RESTARTING.",
+          "job_running_line": "2026-09-28T08:19:03.332083709Z 2026-09-28 08:19:03,331 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-tm (3c9d39150a641b9dc22eb59d03a2c659) switched from state RESTARTING to RUNNING.",
+          "last_task_running_line": "2026-09-28 08:19:04,982 dedup (2/2) switched from INITIALIZING to RUNNING",
+          "interesting_lines": [
+            "2026-09-28T08:18:58.330274303Z 2026-09-28 08:18:58,330 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-tm (3c9d39150a641b9dc22eb59d03a2c659) switched from state RUNNING to RESTARTING.",
+            "2026-09-28T08:19:03.332083709Z 2026-09-28 08:19:03,331 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-tm (3c9d39150a641b9dc22eb59d03a2c659) switched from state RESTARTING to RUNNING.",
+            "2026-09-28T08:19:03.332286088Z 2026-09-28 08:19:03,332 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job 3c9d39150a641b9dc22eb59d03a2c659 from Checkpoint 3 @ 1790583488307 for 3c9d39150a641b9dc22eb59d03a2c659 located at file:/opt/flink/checkpoints/3c9d39150a641b9dc22eb59d03a2c659/chk-3."
+          ],
+          "log_time_missing": false,
+          "task_lines_note": "任务行不含 job id，脚本第一次没收进 interesting_lines。这行是事后用同一份 JobManager 日志、按 08:19:03 作业恢复之后的最后一条 INITIALIZING to RUNNING 补上的。"
+        },
+        "poll_note": "poll_states 只说明 REST 上看到的状态，恢复秒数以 log 里的时间戳为准。"
+      },
+      "replay": {
+        "run_id": "chaos-tm",
+        "topic": "events-chaos-tm",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 151.864,
+        "produce_rate": 4618.62,
+        "speedup": 287.666667,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.165,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "5884"
+        },
+        "polls": 5
+      },
+      "e2e_s": 174.458,
+      "e2e_events_per_s": 4020.19,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 1,
+          "total": 17,
+          "in_progress": 0,
+          "completed": 12,
+          "failed": 5
+        },
+        "completed": {
+          "id": 16,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 420,
+          "state_size_bytes": 31846060,
+          "checkpointed_size_bytes": 31846060
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 16,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790583631465,
+          "latest_ack_timestamp": 1790583631885,
+          "checkpointed_size": 31846060,
+          "state_size": 31846060,
+          "end_to_end_duration": 420,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/3c9d39150a641b9dc22eb59d03a2c659/chk-16",
+          "discarded": false
+        },
+        "restored": {
+          "id": 3,
+          "restore_timestamp": 1790583543332,
+          "external_path": "file:/opt/flink/checkpoints/3c9d39150a641b9dc22eb59d03a2c659/chk-3",
+          "raw": {
+            "id": 3,
+            "restore_timestamp": 1790583543332,
+            "is_savepoint": false,
+            "external_path": "file:/opt/flink/checkpoints/3c9d39150a641b9dc22eb59d03a2c659/chk-3"
+          }
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "5884",
+          "late_pv": "5748"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 69,
+            "sum_abs_diff": 9321.0,
+            "max_abs_diff": 3980.0,
+            "sum_rt": 666587.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 47,
+            "sum_abs_diff": 2577.0,
+            "max_abs_diff": 1164.0,
+            "sum_rt": 208670.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 28,
+            "sum_abs_diff": 117.0,
+            "max_abs_diff": 46.0,
+            "sum_rt": 11264.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 31,
+            "sum_abs_diff": 140.0,
+            "max_abs_diff": 42.0,
+            "sum_rt": 13553.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 59,
+            "sum_abs_diff": 3356.0,
+            "max_abs_diff": 1486.0,
+            "sum_rt": 222237.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 47,
+            "sum_abs_diff": 2577.0,
+            "max_abs_diff": 1164.0,
+            "sum_rt": 208670.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 11,
+            "sum_abs_diff": 64.0,
+            "max_abs_diff": 29.0,
+            "sum_rt": 7685.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 101.0,
+            "max_abs_diff": 39.0,
+            "sum_rt": 12026.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 60.0,
+            "max_abs_diff": 26.0,
+            "sum_rt": 6740.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 26.0,
+            "max_abs_diff": 6.0,
+            "sum_rt": 3284.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 15,
+            "sum_abs_diff": 90.0,
+            "max_abs_diff": 34.0,
+            "sum_rt": 9059.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 174
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 666587.0,
+          "late_pv": 5748.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 670935.0,
+          "first_seen_batch": 674913.0,
+          "gap": -3978.0,
+          "exact": false
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 26.19,
+            "mem_at_max_cpu": "1.309GiB / 3GiB",
+            "samples": 7
+          },
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 146.2,
+            "mem_at_max_cpu": "564.5MiB / 1.5GiB",
+            "samples": 4
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.1,
+            "mem_at_max_cpu": "61.32MiB / 384MiB",
+            "samples": 7
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 2.45,
+            "mem_at_max_cpu": "632.9MiB / 900MiB",
+            "samples": 7
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 3.42,
+            "mem_at_max_cpu": "558.8MiB / 768MiB",
+            "samples": 7
+          }
+        },
+        "sample_count": 7
+      },
+      "exceptions": "org.apache.flink.runtime.jobmaster.JobMasterException: TaskManager with id 172.18.0.6:45837-dcb710 is no longer reachable.\n\tat org.apache.flink.runtime.jobmaster.JobMaster$TaskManagerHeartbeatListener.notifyTargetUnreachable(JobMaster.java:1480)\n\tat org.apache.flink.runtime.heartbeat.DefaultHeartbeatMonitor.reportHeartbeatRpcFailure(DefaultHeartbeatMonitor.java:126)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.runIfHeartbeatMonitorExists(HeartbeatManagerImpl.java:275)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.reportHeartbeatTargetUnreachable(HeartbeatManagerImpl.java:267)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.handleHeartbeatRpcFailure(HeartbeatManagerImpl.java:262)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.lambda$handleHeartbeatRpc$0(HeartbeatManagerImpl.java:248)\n\tat java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(Unknown Source)\n\tat java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(Unknown Source)\n\tat java.base/java.util.concurrent.CompletableFuture$Completion.run(Unknown Source)\n\tat org.apache.flink.runtime.rpc.pekko.PekkoRpcActor.lambda$handleRunAsync$4(PekkoRpcActor.java:451)\n\tat org.apache.flink.runtime.concurrent.ClassLoadingUtils.runWithContextClassLoader(ClassLoadingUtils.java:68)\n\tat org.apache.flink.runtime.rpc.pekko.PekkoRpcActor.handleRunAsync(PekkoRpcActor.java:451)\n\tat org.apache.flink.runtime.rpc.pekko.PekkoRpcActor.handleRpcMessage(PekkoRpcActor.ja"
+    },
+    "chaos-clickhouse": {
+      "watermark_mode": "punctuated",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 287.6666666666667,
+      "job_id": "80ec21fb7eb888cfe5de9c50286f077f",
+      "chaos_kind": "clickhouse",
+      "checkpoint_before": {
+        "completed": 3,
+        "ods": 31049,
+        "brief": {
+          "counts": {
+            "restored": 0,
+            "total": 3,
+            "in_progress": 0,
+            "completed": 3,
+            "failed": 0
+          },
+          "completed": {
+            "id": 3,
+            "status": "COMPLETED",
+            "end_to_end_duration_ms": 23,
+            "state_size_bytes": 1472732,
+            "checkpointed_size_bytes": 1472732
+          },
+          "completed_raw": {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1790583675816,
+            "latest_ack_timestamp": 1790583675839,
+            "checkpointed_size": 1472732,
+            "state_size": 1472732,
+            "end_to_end_duration": 23,
+            "alignment_buffered": 0,
+            "processed_data": 4002,
+            "persisted_data": 0,
+            "num_subtasks": 16,
+            "num_acknowledged_subtasks": 16,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-3",
+            "discarded": false
+          }
+        }
+      },
+      "chaos": {
+        "poll_states": [
+          {
+            "after_s": 7.749,
+            "state": "RESTARTING"
+          },
+          {
+            "after_s": 9.757,
+            "state": "RESTARTING"
+          },
+          {
+            "after_s": 11.763,
+            "state": "RESTARTING"
+          },
+          {
+            "after_s": 13.773,
+            "state": "RESTARTING"
+          },
+          {
+            "after_s": 15.78,
+            "state": "RESTARTING"
+          },
+          {
+            "after_s": 17.788,
+            "state": "RUNNING"
+          }
+        ],
+        "log": {
+          "restarting_cycles": 3,
+          "running_to_restarting": "2026-09-28T08:21:19.705756+00:00",
+          "job_restarting_to_running_s": 16.18,
+          "restarting_to_last_task_running_s": 16.703,
+          "restoring_line": "2026-09-28T08:21:35.886254454Z 2026-09-28 08:21:35,886 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job 80ec21fb7eb888cfe5de9c50286f077f from Checkpoint 3 @ 1790583675816 for 80ec21fb7eb888cfe5de9c50286f077f located at file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-3.",
+          "restarting_line": "2026-09-28T08:21:19.705756916Z 2026-09-28 08:21:19,705 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RUNNING to RESTARTING.",
+          "job_running_line": "2026-09-28T08:21:35.886023541Z 2026-09-28 08:21:35,885 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RESTARTING to RUNNING.",
+          "last_task_running_line": "2026-09-28 08:21:36,408 dedup (2/2) switched from INITIALIZING to RUNNING",
+          "interesting_lines": [
+            "2026-09-28T08:21:19.705756916Z 2026-09-28 08:21:19,705 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RUNNING to RESTARTING.",
+            "2026-09-28T08:21:24.709701001Z 2026-09-28 08:21:24,709 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RESTARTING to RUNNING.",
+            "2026-09-28T08:21:24.709928130Z 2026-09-28 08:21:24,709 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job 80ec21fb7eb888cfe5de9c50286f077f from Checkpoint 3 @ 1790583675816 for 80ec21fb7eb888cfe5de9c50286f077f located at file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-3.",
+            "2026-09-28T08:21:25.189237971Z 2026-09-28 08:21:25,189 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RUNNING to RESTARTING.",
+            "2026-09-28T08:21:30.194992989Z 2026-09-28 08:21:30,194 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RESTARTING to RUNNING.",
+            "2026-09-28T08:21:30.195020819Z 2026-09-28 08:21:30,194 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job 80ec21fb7eb888cfe5de9c50286f077f from Checkpoint 3 @ 1790583675816 for 80ec21fb7eb888cfe5de9c50286f077f located at file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-3.",
+            "2026-09-28T08:21:30.882120816Z 2026-09-28 08:21:30,882 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RUNNING to RESTARTING.",
+            "2026-09-28T08:21:35.886023541Z 2026-09-28 08:21:35,885 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job pulseboard-chaos-clickhouse (80ec21fb7eb888cfe5de9c50286f077f) switched from state RESTARTING to RUNNING.",
+            "2026-09-28T08:21:35.886254454Z 2026-09-28 08:21:35,886 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job 80ec21fb7eb888cfe5de9c50286f077f from Checkpoint 3 @ 1790583675816 for 80ec21fb7eb888cfe5de9c50286f077f located at file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-3."
+          ],
+          "log_time_missing": false,
+          "task_lines_note": "从第一次 RUNNING to RESTARTING（08:21:19.705）到第三次恢复后最后一个 task RUNNING（08:21:36.408）。中间有 3 次 RESTARTING。"
+        },
+        "poll_note": "poll_states 只说明 REST 上看到的状态，恢复秒数以 log 里的时间戳为准。"
+      },
+      "replay": {
+        "run_id": "chaos-clickhouse",
+        "topic": "events-chaos-clickhouse",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 151.864,
+        "produce_rate": 4618.65,
+        "speedup": 287.666667,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.148,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "4125"
+        },
+        "polls": 5
+      },
+      "e2e_s": 174.496,
+      "e2e_events_per_s": 4019.31,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 3,
+          "total": 15,
+          "in_progress": 0,
+          "completed": 15,
+          "failed": 0
+        },
+        "completed": {
+          "id": 15,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 393,
+          "state_size_bytes": 31846084,
+          "checkpointed_size_bytes": 31846084
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 15,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790583815119,
+          "latest_ack_timestamp": 1790583815512,
+          "checkpointed_size": 31846084,
+          "state_size": 31846084,
+          "end_to_end_duration": 393,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-15",
+          "discarded": false
+        },
+        "restored": {
+          "id": 3,
+          "restore_timestamp": 1790583695886,
+          "external_path": "file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-3",
+          "raw": {
+            "id": 3,
+            "restore_timestamp": 1790583695886,
+            "is_savepoint": false,
+            "external_path": "file:/opt/flink/checkpoints/80ec21fb7eb888cfe5de9c50286f077f/chk-3"
+          }
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "4125",
+          "late_pv": "4017"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 69,
+            "sum_abs_diff": 3084.0,
+            "max_abs_diff": 1204.0,
+            "sum_rt": 672298.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 54,
+            "sum_abs_diff": 674.0,
+            "max_abs_diff": 235.0,
+            "sum_rt": 210573.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 31,
+            "sum_abs_diff": 49.0,
+            "max_abs_diff": 8.0,
+            "sum_rt": 11332.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 31,
+            "sum_abs_diff": 86.0,
+            "max_abs_diff": 19.0,
+            "sum_rt": 13601.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 58,
+            "sum_abs_diff": 1198.0,
+            "max_abs_diff": 480.0,
+            "sum_rt": 224249.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 54,
+            "sum_abs_diff": 674.0,
+            "max_abs_diff": 235.0,
+            "sum_rt": 210573.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 22.0,
+            "max_abs_diff": 5.0,
+            "sum_rt": 7727.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 15,
+            "sum_abs_diff": 53.0,
+            "max_abs_diff": 16.0,
+            "sum_rt": 12074.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 15,
+            "sum_abs_diff": 30.0,
+            "max_abs_diff": 7.0,
+            "sum_rt": 6770.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 13,
+            "sum_abs_diff": 19.0,
+            "max_abs_diff": 4.0,
+            "sum_rt": 3291.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 18,
+            "sum_abs_diff": 50.0,
+            "max_abs_diff": 14.0,
+            "sum_rt": 9099.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 189
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 672298.0,
+          "late_pv": 4017.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 674915.0,
+          "first_seen_batch": 674913.0,
+          "gap": 2.0,
+          "exact": false
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 31.18,
+            "mem_at_max_cpu": "617.8MiB / 3GiB",
+            "samples": 4
+          },
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 130.26,
+            "mem_at_max_cpu": "624.5MiB / 1.5GiB",
+            "samples": 4
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.09,
+            "mem_at_max_cpu": "61.18MiB / 384MiB",
+            "samples": 4
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 1.68,
+            "mem_at_max_cpu": "619.8MiB / 900MiB",
+            "samples": 4
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 3.41,
+            "mem_at_max_cpu": "564.8MiB / 768MiB",
+            "samples": 4
+          }
+        },
+        "sample_count": 4
+      },
+      "exceptions": "java.net.ConnectException\n\tat java.net.http/jdk.internal.net.http.HttpClientImpl.send(Unknown Source)\n\tat java.net.http/jdk.internal.net.http.HttpClientFacade.send(Unknown Source)\n\tat io.pulseboard.pipeline.sink.ClickHouseSink.flushLocked(ClickHouseSink.java:157)\n\tat io.pulseboard.pipeline.sink.ClickHouseSink.invoke(ClickHouseSink.java:87)\n\tat org.apache.flink.streaming.api.operators.StreamSink.processElement(StreamSink.java:54)\n\tat org.apache.flink.streaming.runtime.tasks.CopyingChainingOutput.pushToOperator(CopyingChainingOutput.java:75)\n\tat org.apache.flink.streaming.runtime.tasks.CopyingChainingOutput.collect(CopyingChainingOutput.java:50)\n\tat org.apache.flink.streaming.runtime.tasks.CopyingChainingOutput.collect(CopyingChainingOutput.java:29)\n\tat org.apache.flink.streaming.api.operators.StreamMap.processElement(StreamMap.java:38)\n\tat org.apache.flink.streaming.runtime.tasks.CopyingChainingOutput.pushToOperator(CopyingChainingOutput.java:75)\n\tat org.apache.flink.streaming.runtime.tasks.CopyingChainingOutput.collect(CopyingChainingOutput.java:50)\n\tat org.apache.flink.streaming.runtime.tasks.ChainingOutput.collectAndCheckIfChained(ChainingOutput.java:89)\n\tat org.apache.flink.streaming.runtime.tasks.ChainingOutput.collectAndCheckIfChained(ChainingOutput.java:39)\n\tat org.apache.flink.streaming.runtime.tasks.BroadcastingOutputCollector.collect(BroadcastingOutputCollector.java:82)\n\tat org.apache.flink.streaming.runtime.tasks.BroadcastingOutputCollector.collect(BroadcastingOutputC"
+    },
+    "chaos-kafka": {
+      "watermark_mode": "punctuated",
+      "batch_size": 1000,
+      "flush_ms": 200,
+      "speedup": 287.6666666666667,
+      "job_id": "69a73b0e4b90930c5e3b1f3d9b1272cb",
+      "chaos_kind": "kafka",
+      "checkpoint_before": {
+        "completed": 3,
+        "ods": 31036,
+        "brief": {
+          "counts": {
+            "restored": 0,
+            "total": 3,
+            "in_progress": 0,
+            "completed": 3,
+            "failed": 0
+          },
+          "completed": {
+            "id": 3,
+            "status": "COMPLETED",
+            "end_to_end_duration_ms": 28,
+            "state_size_bytes": 1504702,
+            "checkpointed_size_bytes": 1504702
+          },
+          "completed_raw": {
+            "className": "completed",
+            "id": 3,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1790583865154,
+            "latest_ack_timestamp": 1790583865182,
+            "checkpointed_size": 1504702,
+            "state_size": 1504702,
+            "end_to_end_duration": 28,
+            "alignment_buffered": 0,
+            "processed_data": 10996,
+            "persisted_data": 0,
+            "num_subtasks": 16,
+            "num_acknowledged_subtasks": 16,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/69a73b0e4b90930c5e3b1f3d9b1272cb/chk-3",
+            "discarded": false
+          }
+        }
+      },
+      "chaos": {
+        "poll_states": [
+          {
+            "after_s": 14.83,
+            "state": "RUNNING"
+          }
+        ],
+        "log": {
+          "restarting_cycles": 0,
+          "running_to_restarting": null,
+          "job_restarting_to_running_s": null,
+          "restarting_to_last_task_running_s": null,
+          "restoring_line": null,
+          "restarting_line": null,
+          "job_running_line": null,
+          "last_task_running_line": null,
+          "interesting_lines": [],
+          "log_time_missing": true
+        },
+        "poll_note": "poll_states 只说明 REST 上看到的状态，恢复秒数以 log 里的时间戳为准。"
+      },
+      "replay": {
+        "run_id": "chaos-kafka",
+        "topic": "events-chaos-kafka",
+        "mode": "paced",
+        "produced": 701354,
+        "planned": 701404,
+        "kicks": 3,
+        "elapsed_s": 151.865,
+        "produce_rate": 4618.59,
+        "speedup": 287.666667,
+        "seed": 11,
+        "injection": {
+          "counts": {
+            "data": 661405,
+            "duplicate": 1354,
+            "jitter": 35033,
+            "malformed": 50,
+            "late": 3562
+          },
+          "malformed_kinds": {
+            "bad_json": 10,
+            "bad_user": 10,
+            "bad_behavior": 10,
+            "bad_time": 10,
+            "empty": 10
+          },
+          "planned": 701404
+        },
+        "max_behind_s": 0.185,
+        "input_rows": 700000,
+        "min_event_time_ms": 1572566400000,
+        "max_event_time_ms": 1572609550000,
+        "exit_code": 0
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "701354",
+          "windows": "72",
+          "late": "1446"
+        },
+        "polls": 4
+      },
+      "e2e_s": 169.345,
+      "e2e_events_per_s": 4141.57,
+      "checkpoint_after": {
+        "counts": {
+          "restored": 0,
+          "total": 17,
+          "in_progress": 0,
+          "completed": 17,
+          "failed": 0
+        },
+        "completed": {
+          "id": 17,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 357,
+          "state_size_bytes": 31846069,
+          "checkpointed_size_bytes": 31846069
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 17,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790584005154,
+          "latest_ack_timestamp": 1790584005511,
+          "checkpointed_size": 31846069,
+          "state_size": 31846069,
+          "end_to_end_duration": 357,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/69a73b0e4b90930c5e3b1f3d9b1272cb/chk-17",
+          "discarded": false
+        }
+      },
+      "rt_summary": {
+        "windows": 72,
+        "late": {
+          "late_events": "1446",
+          "late_pv": "1400"
+        },
+        "duplicates": {
+          "duplicate_events": "1811"
+        },
+        "duplicate_pv": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        },
+        "ods_physical": {
+          "physical": "701354"
+        },
+        "ods_final": {
+          "final_rows": "701354"
+        }
+      },
+      "quality": {
+        "invalid_by_reason": [
+          {
+            "reason": "bad_behavior",
+            "c": "10"
+          },
+          {
+            "reason": "bad_time",
+            "c": "10"
+          },
+          {
+            "reason": "bad_user",
+            "c": "10"
+          },
+          {
+            "reason": "empty",
+            "c": "1"
+          },
+          {
+            "reason": "unparseable",
+            "c": "10"
+          }
+        ],
+        "duplicates": {
+          "duplicate_events": "1811",
+          "duplicate_pv": "1400"
+        }
+      },
+      "accuracy": {
+        "vs_python": {
+          "pv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 70,
+            "sum_abs_diff": 453.0,
+            "max_abs_diff": 23.0,
+            "sum_rt": 674913.0,
+            "sum_batch": 675012.0
+          },
+          "uv": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 54,
+            "sum_abs_diff": 161.0,
+            "max_abs_diff": 7.0,
+            "sum_rt": 211086.0,
+            "sum_batch": 211247.0
+          },
+          "cart_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 28,
+            "sum_abs_diff": 32.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 11349.0,
+            "sum_batch": 11345.0
+          },
+          "buy_cnt": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 30,
+            "sum_abs_diff": 41.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 13646.0,
+            "sum_batch": 13643.0
+          },
+          "dim_miss": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 56,
+            "sum_abs_diff": 224.0,
+            "max_abs_diff": 14.0,
+            "sum_rt": 225219.0,
+            "sum_batch": 225271.0
+          },
+          "pv_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 54,
+            "sum_abs_diff": 161.0,
+            "max_abs_diff": 7.0,
+            "sum_rt": 211086.0,
+            "sum_batch": 211247.0
+          },
+          "cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 9,
+            "sum_abs_diff": 10.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 7739.0,
+            "sum_batch": 7749.0
+          },
+          "buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 14,
+            "sum_abs_diff": 19.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 12108.0,
+            "sum_batch": 12127.0
+          },
+          "pv_to_cart_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 12,
+            "sum_abs_diff": 14.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 6786.0,
+            "sum_batch": 6800.0
+          },
+          "cart_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 10,
+            "sum_abs_diff": 12.0,
+            "max_abs_diff": 2.0,
+            "sum_rt": 3298.0,
+            "sum_batch": 3310.0
+          },
+          "pv_to_buy_users": {
+            "windows_compared": 72,
+            "windows_missing_one_side": 0,
+            "windows_with_diff": 17,
+            "sum_abs_diff": 21.0,
+            "max_abs_diff": 3.0,
+            "sum_rt": 9128.0,
+            "sum_batch": 9149.0
+          },
+          "topn": {
+            "pairs_rt": 720,
+            "pairs_batch": 720,
+            "pairs_missing_one_side": 0,
+            "pairs_item_or_pv_mismatch": 161
+          }
+        },
+        "pv_identity": {
+          "ads_pv": 674913.0,
+          "late_pv": 1400.0,
+          "duplicate_pv": 1400.0,
+          "batch_pv": 675012.0,
+          "file_duplicate_pv": 99,
+          "first_seen_streaming": 674913.0,
+          "first_seen_batch": 674913.0,
+          "gap": 0.0,
+          "exact": true
+        }
+      },
+      "docker_stats": {
+        "peaks": {
+          "pulseboard-clickhouse": {
+            "max_cpu_perc": 27.94,
+            "mem_at_max_cpu": "819.8MiB / 3GiB",
+            "samples": 4
+          },
+          "pulseboard-taskmanager": {
+            "max_cpu_perc": 38.32,
+            "mem_at_max_cpu": "633.1MiB / 1.5GiB",
+            "samples": 4
+          },
+          "pulseboard-grafana": {
+            "max_cpu_perc": 0.14,
+            "mem_at_max_cpu": "61.64MiB / 384MiB",
+            "samples": 4
+          },
+          "pulseboard-jobmanager": {
+            "max_cpu_perc": 0.81,
+            "mem_at_max_cpu": "652.8MiB / 900MiB",
+            "samples": 4
+          },
+          "pulseboard-kafka": {
+            "max_cpu_perc": 49.02,
+            "mem_at_max_cpu": "357.8MiB / 768MiB",
+            "samples": 4
+          }
+        },
+        "sample_count": 4
+      }
+    }
+  },
+  "unfinished": [
+    "两轮 70 万行同时留在 ClickHouse 时，查询返回 Code 241：would use 790.68 MiB，maximum 762.94 MiB。之后每轮把指标写入 JSON 就删除该 run_id 的行，下面各次运行是在这个删除策略下测的。",
+    "清理 smoke 失败：ClickHouse HTTP 500: Code: 341. DB::Exception: Exception happened during execution of mutation 'mutation_4463.txt' with part 'all_4462_4462_0' reason: 'Code: 241. DB::Exception: Memory limit (total) exceeded: would use 823.50 MiB (attempt to allocate chunk of 0 bytes), maximum: 762.94 MiB. OvercommitTracker decision: Memory overcommit isn't used. Waiting time or overcommit denominator are set to zero.: While executing AggregatingTransform. (MEMORY_LIMIT_EXCEEDED) (version 24.8.14.39 (official build))'. This error maybe retryable or not. In case of unretryable error, mutation can be killed with KILL MUTATION query. (UNFINISHED) (version 24.8.14.39 (official build))\n"
+  ],
+  "services": {
+    "clickhouse": true,
+    "flink_version": "1.18.1",
+    "flink": true,
+    "kafka_list": "__consumer_offsets\nevents-chaos-clickhouse\nevents-chaos-kafka\nevents-chaos-tm\nevents-fast-after\nevents-fast-before\nevents-fast-sink\nevents-pace-after\nevents-pace-before\nevents-smoke\n",
+    "kafka": true,
+    "grafana": true,
+    "clickhouse_version": "24.8.14.39"
+  },
+  "limits": {
+    "pulseboard-kafka": {
+      "requested_cpus": 0.5,
+      "nano_cpus": 500000000,
+      "enforced_cpus": 0.5,
+      "memory_bytes": 805306368,
+      "cgroup_cpu_max": "50000 100000",
+      "cgroup_cpu_quota_us": "",
+      "cpu_quota_enforced": true
+    },
+    "pulseboard-clickhouse": {
+      "requested_cpus": 1.0,
+      "nano_cpus": 1000000000,
+      "enforced_cpus": 1.0,
+      "memory_bytes": 3221225472,
+      "cgroup_cpu_max": "100000 100000",
+      "cgroup_cpu_quota_us": "",
+      "cpu_quota_enforced": true
+    },
+    "pulseboard-jobmanager": {
+      "requested_cpus": 0.4,
+      "nano_cpus": 400000000,
+      "enforced_cpus": 0.4,
+      "memory_bytes": 943718400,
+      "cgroup_cpu_max": "40000 100000",
+      "cgroup_cpu_quota_us": "",
+      "cpu_quota_enforced": true
+    },
+    "pulseboard-taskmanager": {
+      "requested_cpus": 1.5,
+      "nano_cpus": 1500000000,
+      "enforced_cpus": 1.5,
+      "memory_bytes": 1610612736,
+      "cgroup_cpu_max": "150000 100000",
+      "cgroup_cpu_quota_us": "",
+      "cpu_quota_enforced": true
+    },
+    "pulseboard-grafana": {
+      "requested_cpus": 0.25,
+      "nano_cpus": 250000000,
+      "enforced_cpus": 0.25,
+      "memory_bytes": 402653184,
+      "cgroup_cpu_max": "25000 100000",
+      "cgroup_cpu_quota_us": "",
+      "cpu_quota_enforced": true
+    }
+  },
+  "dataset": {
+    "source": {
+      "name": "eCommerce behavior data from multi category store",
+      "author": "Michael Kechinov",
+      "collector": "REES46 / Open CDP",
+      "page": "https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store",
+      "mirror": "https://huggingface.co/datasets/kevykibbz/ecommerce-behavior-data-from-multi-category-store_oct-nov_2019/resolve/main/ecommerce-behavior-data-from-multi-category-store_oct-nov_2019.csv",
+      "license": "Dataset card: free to use for research, books, and educational materials with attribution to REES46 and the Kaggle dataset page. This repository stores only a download script, not the rows."
+    },
+    "input": "data/raw/day_head.csv",
+    "rows": 700000,
+    "unique_items": 56459,
+    "unique_users": 125865,
+    "behaviors": {
+      "pv": 675012,
+      "cart": 11345,
+      "buy": 13643
+    },
+    "min_event_time_ms": 1572566400000,
+    "max_event_time_ms": 1572609550000,
+    "span_ms": 43150000,
+    "window_ms": 600000,
+    "watermark_ms": 120000,
+    "sha256_events": "5b60424df6fc991100f673c7aada3506034e89649018290c90b7b573d01451b5",
+    "events_csv": "data/realistic/events.csv",
+    "dim_csv": "data/dim/dim_item_realistic.csv",
+    "hourly": [
+      {
+        "hour_utc": "00",
+        "events": 10887
+      },
+      {
+        "hour_utc": "01",
+        "events": 14000
+      },
+      {
+        "hour_utc": "02",
+        "events": 32498
+      },
+      {
+        "hour_utc": "03",
+        "events": 49348
+      },
+      {
+        "hour_utc": "04",
+        "events": 61480
+      },
+      {
+        "hour_utc": "05",
+        "events": 73450
+      },
+      {
+        "hour_utc": "06",
+        "events": 76155
+      },
+      {
+        "hour_utc": "07",
+        "events": 79426
+      },
+      {
+        "hour_utc": "08",
+        "events": 79818
+      },
+      {
+        "hour_utc": "09",
+        "events": 76812
+      },
+      {
+        "hour_utc": "10",
+        "events": 75667
+      },
+      {
+        "hour_utc": "11",
+        "events": 70459
+      }
+    ],
+    "file_duplicate_events": 457,
+    "file_duplicate_pv": 99,
+    "wall_s": 150.0,
+    "speedup": 287.6666666666667,
+    "fast_wall_s": 70.0,
+    "fast_speedup": 616.4285714285714
+  },
+  "python_batch": {
+    "elapsed_s": 2.472,
+    "duplicate_events": 457,
+    "windows": 72,
+    "pv_sum": 675012.0
+  },
+  "optimization": {
+    "pace_before_e2e": 4023.16,
+    "pace_after_e2e": 4019.96,
+    "pace_ratio": 0.9992,
+    "pace_note": "150 秒昼夜回放上，periodic 没有把端到端速率提高 5%。下面改用更短的墙钟，让管道离开回放睡眠的上限。",
+    "fast_before_e2e": 7925.53,
+    "fast_after_e2e": 7503.84,
+    "fast_ratio": 0.9468,
+    "fast_note": "更快的 speedup 上 periodic 仍没有提高 5%。再只改 sink 批量。",
+    "fast_sink_e2e": 7512.52,
+    "sink_ratio": 0.9479,
+    "chosen": "fast-before vs fast-sink（只改 batch 4000 / flush 500，水位仍是 punctuated）"
+  },
+  "bottleneck": {
+    "cpu_vs_quota": [
+      {
+        "container": "pulseboard-taskmanager",
+        "max_cpu_cores": 0.885,
+        "quota": 1.5,
+        "cores_over_quota": 0.59,
+        "mem": "554.5MiB / 1.5GiB"
+      },
+      {
+        "container": "pulseboard-kafka",
+        "max_cpu_cores": 0.137,
+        "quota": 0.5,
+        "cores_over_quota": 0.273,
+        "mem": "346MiB / 768MiB"
+      },
+      {
+        "container": "pulseboard-jobmanager",
+        "max_cpu_cores": 0.053,
+        "quota": 0.4,
+        "cores_over_quota": 0.134,
+        "mem": "431.4MiB / 900MiB"
+      },
+      {
+        "container": "pulseboard-clickhouse",
+        "max_cpu_cores": 0.131,
+        "quota": 1.0,
+        "cores_over_quota": 0.131,
+        "mem": "398.8MiB / 1GiB"
+      },
+      {
+        "container": "pulseboard-grafana",
+        "max_cpu_cores": 0.001,
+        "quota": 0.25,
+        "cores_over_quota": 0.005,
+        "mem": "75.55MiB / 384MiB"
+      }
+    ],
+    "backpressure_not_low": []
+  },
+  "finished_at": "2026-09-28T08:36:38Z"
+}

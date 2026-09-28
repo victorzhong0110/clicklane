@@ -1,0 +1,1451 @@
+{
+  "started_at": "2026-09-28T07:31:44Z",
+  "machine": {
+    "uname": "Linux bench 6.12.94+ #1 SMP PREEMPT_DYNAMIC Thu Sep 24 16:04:37 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+    "nproc": "4",
+    "cpu": "Intel(R) Xeon(R) Processor",
+    "meminfo": "MemTotal:       16398384 kB\nMemAvailable:    3343140 kB\nSwapTotal:             0 kB",
+    "os": "Ubuntu 24.04.4 LTS (Noble Numbat)",
+    "java": "openjdk version \"21.0.10\" 2026-01-20\nOpenJDK Runtime Environment (build 21.0.10+7-Ubuntu-124.04)\nOpenJDK 64-Bit Server VM (build 21.0.10+7-Ubuntu-124.04, mixed mode, sharing)",
+    "python": "Python 3.12.3",
+    "docker": "Server=29.1.3 Driver=vfs NCPU=4 MemTotal=16791945216",
+    "disk": "overlay         126G   26G   95G  22% /"
+  },
+  "runs": {
+    "baseline": {
+      "job_id": "d4497004f5081fe3bc80a6e6538beb21",
+      "replay": {
+        "run_id": "baseline",
+        "topic": "events-baseline",
+        "produced": 200000,
+        "kicks": 3,
+        "elapsed_s": 9.096,
+        "produce_rate": 21986.55,
+        "disorder_ratio": 0.0,
+        "disorder_span_ms": 0,
+        "rate_limit": 0.0,
+        "inversions": 0,
+        "max_lateness_ms": 0,
+        "seed": 7
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "200000",
+          "windows": "33",
+          "late": "0"
+        },
+        "polls": 5
+      },
+      "e2e_s": 29.665,
+      "e2e_events_per_s": 6741.95,
+      "checkpoint": {
+        "counts": {
+          "restored": 0,
+          "total": 3,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 0
+        },
+        "completed": {
+          "id": 3,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 106,
+          "state_size_bytes": 9137583,
+          "checkpointed_size_bytes": 9137583
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 3,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790580738167,
+          "latest_ack_timestamp": 1790580738273,
+          "checkpointed_size": 9137583,
+          "state_size": 9137583,
+          "end_to_end_duration": 106,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/d4497004f5081fe3bc80a6e6538beb21/chk-3",
+          "discarded": false
+        }
+      },
+      "latency": {
+        "ods_insert_minus_produce": {
+          "n": "200000",
+          "min_ms": "17",
+          "p50_ms": 98,
+          "p99_ms": 211.09000000000015,
+          "max_ms": "282"
+        },
+        "ads_insert_minus_max_produce": {
+          "windows": "33",
+          "min_ms": "235",
+          "p50_ms": 338,
+          "p99_ms": 520.56,
+          "max_ms": "534"
+        }
+      },
+      "vs_python": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 193824.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 60083.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 2714.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 3462.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 66642.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 60083.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 1911.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 3130.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 1684.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 784.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 2383.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 0
+        }
+      },
+      "vs_clickhouse_sql": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 193824.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 60083.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 2714.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 3462.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 66642.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 60083.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 1911.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 3130.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 1684.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 784.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 0,
+          "sum_abs_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "sum_rt": 2383.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 0
+        }
+      }
+    },
+    "disorder-3m": {
+      "job_id": "8c8ed47c96d304959e18ab26725e060e",
+      "replay": {
+        "run_id": "disorder-3m",
+        "topic": "events-disorder-3m",
+        "produced": 200000,
+        "kicks": 3,
+        "elapsed_s": 9.117,
+        "produce_rate": 21936.99,
+        "disorder_ratio": 0.25,
+        "disorder_span_ms": 180000,
+        "rate_limit": 0.0,
+        "inversions": 50192,
+        "max_lateness_ms": 235000,
+        "seed": 7
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "200000",
+          "windows": "33",
+          "late": "1871"
+        },
+        "polls": 5
+      },
+      "e2e_s": 29.734,
+      "e2e_events_per_s": 6726.31,
+      "checkpoint": {
+        "counts": {
+          "restored": 0,
+          "total": 3,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 0
+        },
+        "completed": {
+          "id": 3,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 84,
+          "state_size_bytes": 9137592,
+          "checkpointed_size_bytes": 9137592
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 3,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790580769729,
+          "latest_ack_timestamp": 1790580769813,
+          "checkpointed_size": 9137592,
+          "state_size": 9137592,
+          "end_to_end_duration": 84,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/8c8ed47c96d304959e18ab26725e060e/chk-3",
+          "discarded": false
+        }
+      },
+      "vs_python": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 1796.0,
+          "max_abs_diff": 210.0,
+          "sum_rt": 192028.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 349.0,
+          "max_abs_diff": 35.0,
+          "sum_rt": 59734.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 17,
+          "sum_abs_diff": 34.0,
+          "max_abs_diff": 8.0,
+          "sum_rt": 2680.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 16,
+          "sum_abs_diff": 41.0,
+          "max_abs_diff": 7.0,
+          "sum_rt": 3421.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 607.0,
+          "max_abs_diff": 71.0,
+          "sum_rt": 66035.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 349.0,
+          "max_abs_diff": 35.0,
+          "sum_rt": 59734.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 14,
+          "sum_abs_diff": 25.0,
+          "max_abs_diff": 6.0,
+          "sum_rt": 1886.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 16,
+          "sum_abs_diff": 32.0,
+          "max_abs_diff": 7.0,
+          "sum_rt": 3098.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 14,
+          "sum_abs_diff": 23.0,
+          "max_abs_diff": 5.0,
+          "sum_rt": 1661.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 8,
+          "sum_abs_diff": 9.0,
+          "max_abs_diff": 2.0,
+          "sum_rt": 775.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 16,
+          "sum_abs_diff": 32.0,
+          "max_abs_diff": 8.0,
+          "sum_rt": 2351.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 121
+        }
+      },
+      "vs_clickhouse_sql": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 1796.0,
+          "max_abs_diff": 210.0,
+          "sum_rt": 192028.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 349.0,
+          "max_abs_diff": 35.0,
+          "sum_rt": 59734.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 17,
+          "sum_abs_diff": 34.0,
+          "max_abs_diff": 8.0,
+          "sum_rt": 2680.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 16,
+          "sum_abs_diff": 41.0,
+          "max_abs_diff": 7.0,
+          "sum_rt": 3421.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 607.0,
+          "max_abs_diff": 71.0,
+          "sum_rt": 66035.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 349.0,
+          "max_abs_diff": 35.0,
+          "sum_rt": 59734.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 14,
+          "sum_abs_diff": 25.0,
+          "max_abs_diff": 6.0,
+          "sum_rt": 1886.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 16,
+          "sum_abs_diff": 32.0,
+          "max_abs_diff": 7.0,
+          "sum_rt": 3098.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 14,
+          "sum_abs_diff": 23.0,
+          "max_abs_diff": 5.0,
+          "sum_rt": 1661.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 8,
+          "sum_abs_diff": 9.0,
+          "max_abs_diff": 2.0,
+          "sum_rt": 775.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 16,
+          "sum_abs_diff": 32.0,
+          "max_abs_diff": 8.0,
+          "sum_rt": 2351.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 121
+        }
+      }
+    },
+    "disorder-15m": {
+      "job_id": "1b4cbe57a043fc0af9b3f9eb2a811434",
+      "replay": {
+        "run_id": "disorder-15m",
+        "topic": "events-disorder-15m",
+        "produced": 200000,
+        "kicks": 3,
+        "elapsed_s": 9.212,
+        "produce_rate": 21710.0,
+        "disorder_ratio": 0.25,
+        "disorder_span_ms": 900000,
+        "rate_limit": 0.0,
+        "inversions": 50192,
+        "max_lateness_ms": 964000,
+        "seed": 7
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "200000",
+          "windows": "33",
+          "late": "47284"
+        },
+        "polls": 5
+      },
+      "e2e_s": 29.888,
+      "e2e_events_per_s": 6691.65,
+      "checkpoint": {
+        "counts": {
+          "restored": 0,
+          "total": 3,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 0
+        },
+        "completed": {
+          "id": 3,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 93,
+          "state_size_bytes": 9137595,
+          "checkpointed_size_bytes": 9137595
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 3,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790580805598,
+          "latest_ack_timestamp": 1790580805691,
+          "checkpointed_size": 9137595,
+          "state_size": 9137595,
+          "end_to_end_duration": 93,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/1b4cbe57a043fc0af9b3f9eb2a811434/chk-3",
+          "discarded": false
+        }
+      },
+      "vs_python": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 45856.0,
+          "max_abs_diff": 2953.0,
+          "sum_rt": 147968.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 6235.0,
+          "max_abs_diff": 401.0,
+          "sum_rt": 53848.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 28,
+          "sum_abs_diff": 653.0,
+          "max_abs_diff": 58.0,
+          "sum_rt": 2061.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 775.0,
+          "max_abs_diff": 57.0,
+          "sum_rt": 2687.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 15698.0,
+          "max_abs_diff": 1001.0,
+          "sum_rt": 50944.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 6235.0,
+          "max_abs_diff": 401.0,
+          "sum_rt": 53848.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 28,
+          "sum_abs_diff": 372.0,
+          "max_abs_diff": 36.0,
+          "sum_rt": 1539.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 654.0,
+          "max_abs_diff": 50.0,
+          "sum_rt": 2476.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 513.0,
+          "max_abs_diff": 42.0,
+          "sum_rt": 1171.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 287.0,
+          "max_abs_diff": 27.0,
+          "sum_rt": 497.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 753.0,
+          "max_abs_diff": 59.0,
+          "sum_rt": 1630.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 312
+        }
+      },
+      "vs_clickhouse_sql": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 45856.0,
+          "max_abs_diff": 2953.0,
+          "sum_rt": 147968.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 6235.0,
+          "max_abs_diff": 401.0,
+          "sum_rt": 53848.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 28,
+          "sum_abs_diff": 653.0,
+          "max_abs_diff": 58.0,
+          "sum_rt": 2061.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 775.0,
+          "max_abs_diff": 57.0,
+          "sum_rt": 2687.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 15698.0,
+          "max_abs_diff": 1001.0,
+          "sum_rt": 50944.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 32,
+          "sum_abs_diff": 6235.0,
+          "max_abs_diff": 401.0,
+          "sum_rt": 53848.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 28,
+          "sum_abs_diff": 372.0,
+          "max_abs_diff": 36.0,
+          "sum_rt": 1539.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 654.0,
+          "max_abs_diff": 50.0,
+          "sum_rt": 2476.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 513.0,
+          "max_abs_diff": 42.0,
+          "sum_rt": 1171.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 29,
+          "sum_abs_diff": 287.0,
+          "max_abs_diff": 27.0,
+          "sum_rt": 497.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 31,
+          "sum_abs_diff": 753.0,
+          "max_abs_diff": 59.0,
+          "sum_rt": 1630.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 312
+        }
+      }
+    },
+    "recovery": {
+      "job_id": "2d364fab703d13df870e9df3c1df4d40",
+      "replay": {
+        "run_id": "recovery",
+        "topic": "events-recovery",
+        "produced": 200000,
+        "kicks": 3,
+        "elapsed_s": 50.011,
+        "produce_rate": 3999.14,
+        "disorder_ratio": 0.0,
+        "disorder_span_ms": 0,
+        "rate_limit": 4000.0,
+        "inversions": 0,
+        "max_lateness_ms": 0,
+        "seed": 7
+      },
+      "recovery": {
+        "checkpoint_before": {
+          "counts": {
+            "restored": 0,
+            "total": 1,
+            "in_progress": 0,
+            "completed": 1,
+            "failed": 0
+          },
+          "completed": {
+            "id": 1,
+            "status": "COMPLETED",
+            "end_to_end_duration_ms": 35,
+            "state_size_bytes": 1460567,
+            "checkpointed_size_bytes": 1460567
+          },
+          "completed_raw": {
+            "className": "completed",
+            "id": 1,
+            "status": "COMPLETED",
+            "is_savepoint": false,
+            "savepointFormat": null,
+            "trigger_timestamp": 1790580815170,
+            "latest_ack_timestamp": 1790580815205,
+            "checkpointed_size": 1460567,
+            "state_size": 1460567,
+            "end_to_end_duration": 35,
+            "alignment_buffered": 0,
+            "processed_data": 5144,
+            "persisted_data": 0,
+            "num_subtasks": 16,
+            "num_acknowledged_subtasks": 16,
+            "checkpoint_type": "CHECKPOINT",
+            "tasks": {},
+            "external_path": "file:/opt/flink/checkpoints/2d364fab703d13df870e9df3c1df4d40/chk-1",
+            "discarded": false
+          }
+        },
+        "job_id": "2d364fab703d13df870e9df3c1df4d40",
+        "states": [
+          {
+            "after_kill_s": 0.136,
+            "state": "RUNNING"
+          },
+          {
+            "after_kill_s": 0.23,
+            "state": "RUNNING"
+          }
+        ],
+        "kill_to_running_s": 0.232,
+        "job_id_unchanged": true,
+        "restored": {
+          "id": 1,
+          "restore_timestamp": 1790580833740,
+          "external_path": "file:/opt/flink/checkpoints/2d364fab703d13df870e9df3c1df4d40/chk-1",
+          "raw": {
+            "id": 1,
+            "restore_timestamp": 1790580833740,
+            "is_savepoint": false,
+            "external_path": "file:/opt/flink/checkpoints/2d364fab703d13df870e9df3c1df4d40/chk-1"
+          }
+        },
+        "ods_physical_after": {
+          "physical": "200000"
+        },
+        "ods_final_after": {
+          "final_rows": "200000"
+        },
+        "poll_note": "kill_to_running_s=0.232 时两次轮询状态都是 RUNNING。这是 docker kill 返回后、Flink 心跳尚未判失败的间隔，不能当作恢复耗时。"
+      },
+      "settle": {
+        "stable": true,
+        "final": {
+          "ods": "200000",
+          "windows": "33",
+          "late": "3399"
+        },
+        "polls": 5
+      },
+      "e2e_s": 70.653,
+      "e2e_events_per_s": 2830.74,
+      "checkpoint": {
+        "counts": {
+          "restored": 1,
+          "total": 7,
+          "in_progress": 0,
+          "completed": 6,
+          "failed": 1
+        },
+        "completed": {
+          "id": 7,
+          "status": "COMPLETED",
+          "end_to_end_duration_ms": 85,
+          "state_size_bytes": 9137583,
+          "checkpointed_size_bytes": 9137583
+        },
+        "completed_raw": {
+          "className": "completed",
+          "id": 7,
+          "status": "COMPLETED",
+          "is_savepoint": false,
+          "savepointFormat": null,
+          "trigger_timestamp": 1790580878952,
+          "latest_ack_timestamp": 1790580879037,
+          "checkpointed_size": 9137583,
+          "state_size": 9137583,
+          "end_to_end_duration": 85,
+          "alignment_buffered": 0,
+          "processed_data": 0,
+          "persisted_data": 0,
+          "num_subtasks": 16,
+          "num_acknowledged_subtasks": 16,
+          "checkpoint_type": "CHECKPOINT",
+          "tasks": {},
+          "external_path": "file:/opt/flink/checkpoints/2d364fab703d13df870e9df3c1df4d40/chk-7",
+          "discarded": false
+        },
+        "restored": {
+          "id": 1,
+          "restore_timestamp": 1790580833740,
+          "external_path": "file:/opt/flink/checkpoints/2d364fab703d13df870e9df3c1df4d40/chk-1",
+          "raw": {
+            "id": 1,
+            "restore_timestamp": 1790580833740,
+            "is_savepoint": false,
+            "external_path": "file:/opt/flink/checkpoints/2d364fab703d13df870e9df3c1df4d40/chk-1"
+          }
+        }
+      },
+      "vs_python": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 3320.0,
+          "max_abs_diff": 1519.0,
+          "sum_rt": 190504.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 947.0,
+          "max_abs_diff": 454.0,
+          "sum_rt": 59136.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 43.0,
+          "max_abs_diff": 16.0,
+          "sum_rt": 2671.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 36.0,
+          "max_abs_diff": 17.0,
+          "sum_rt": 3426.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 1163.0,
+          "max_abs_diff": 535.0,
+          "sum_rt": 65479.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 947.0,
+          "max_abs_diff": 454.0,
+          "sum_rt": 59136.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 26.0,
+          "max_abs_diff": 12.0,
+          "sum_rt": 1885.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 34.0,
+          "max_abs_diff": 17.0,
+          "sum_rt": 3096.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 22.0,
+          "max_abs_diff": 10.0,
+          "sum_rt": 1662.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 2,
+          "sum_abs_diff": 8.0,
+          "max_abs_diff": 6.0,
+          "sum_rt": 776.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 23.0,
+          "max_abs_diff": 10.0,
+          "sum_rt": 2360.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 29
+        }
+      },
+      "vs_clickhouse_sql": {
+        "pv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 3320.0,
+          "max_abs_diff": 1519.0,
+          "sum_rt": 190504.0,
+          "sum_batch": 193824.0
+        },
+        "uv": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 947.0,
+          "max_abs_diff": 454.0,
+          "sum_rt": 59136.0,
+          "sum_batch": 60083.0
+        },
+        "cart_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 43.0,
+          "max_abs_diff": 16.0,
+          "sum_rt": 2671.0,
+          "sum_batch": 2714.0
+        },
+        "buy_cnt": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 36.0,
+          "max_abs_diff": 17.0,
+          "sum_rt": 3426.0,
+          "sum_batch": 3462.0
+        },
+        "dim_miss": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 1163.0,
+          "max_abs_diff": 535.0,
+          "sum_rt": 65479.0,
+          "sum_batch": 66642.0
+        },
+        "pv_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 947.0,
+          "max_abs_diff": 454.0,
+          "sum_rt": 59136.0,
+          "sum_batch": 60083.0
+        },
+        "cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 26.0,
+          "max_abs_diff": 12.0,
+          "sum_rt": 1885.0,
+          "sum_batch": 1911.0
+        },
+        "buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 34.0,
+          "max_abs_diff": 17.0,
+          "sum_rt": 3096.0,
+          "sum_batch": 3130.0
+        },
+        "pv_to_cart_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 22.0,
+          "max_abs_diff": 10.0,
+          "sum_rt": 1662.0,
+          "sum_batch": 1684.0
+        },
+        "cart_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 2,
+          "sum_abs_diff": 8.0,
+          "max_abs_diff": 6.0,
+          "sum_rt": 776.0,
+          "sum_batch": 784.0
+        },
+        "pv_to_buy_users": {
+          "windows_compared": 33,
+          "windows_missing_one_side": 0,
+          "windows_with_diff": 3,
+          "sum_abs_diff": 23.0,
+          "max_abs_diff": 10.0,
+          "sum_rt": 2360.0,
+          "sum_batch": 2383.0
+        },
+        "topn": {
+          "pairs_rt": 330,
+          "pairs_batch": 330,
+          "pairs_missing_one_side": 0,
+          "pairs_item_or_pv_mismatch": 29
+        }
+      },
+      "exceptions": "org.apache.flink.runtime.jobmaster.JobMasterException: TaskManager with id 172.18.0.6:38327-a18793 is no longer reachable.\n\tat org.apache.flink.runtime.jobmaster.JobMaster$TaskManagerHeartbeatListener.notifyTargetUnreachable(JobMaster.java:1480)\n\tat org.apache.flink.runtime.heartbeat.DefaultHeartbeatMonitor.reportHeartbeatRpcFailure(DefaultHeartbeatMonitor.java:126)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.runIfHeartbeatMonitorExists(HeartbeatManagerImpl.java:275)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.reportHeartbeatTargetUnreachable(HeartbeatManagerImpl.java:267)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.handleHeartbeatRpcFailure(HeartbeatManagerImpl.java:262)\n\tat org.apache.flink.runtime.heartbeat.HeartbeatManagerImpl.lambda$handleHeartbeatRpc$0(HeartbeatManagerImpl.java:248)\n\tat java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(Unknown Source)\n\tat java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(Unknown Source)\n\tat java.base/java.util.concurrent.CompletableFuture$Completion.run(Unknown Source)\n\tat org.apache.flink.runtime.rpc.pekko.PekkoRpcActor.lambda$handleRunAsync$4(PekkoRpcActor.java:451)\n\tat org.apache.flink.runtime.concurrent.ClassLoadingUtils.runWithContextClassLoader(ClassLoadingUtils.java:68)\n\tat org.apache.flink.runtime.rpc.pekko.PekkoRpcActor.handleRunAsync(PekkoRpcActor.java:451)\n\tat org.apache.flink.runtime.rpc.pekko.PekkoRpcActor.handleRpcMessage(PekkoRpcActor.ja",
+      "jobmanager_log": {
+        "source": "docker logs pulseboard-jobmanager",
+        "unreachable_and_restarting": "2026-09-28 07:33:48.724",
+        "restoring_checkpoint": "2026-09-28 07:33:53.732",
+        "checkpoint": "file:/opt/flink/checkpoints/2d364fab703d13df870e9df3c1df4d40/chk-1",
+        "job_state_running_again": "2026-09-28 07:33:53.731",
+        "last_task_running": "2026-09-28 07:33:56.830",
+        "restarting_to_job_running_s": 5.007,
+        "restarting_to_last_task_running_s": 8.106
+      }
+    }
+  },
+  "unfinished": [
+    "Flink SQL 只写在 sql/flink_reference.sql，没有提交到集群，也没有进入这组数字。",
+    "数据集只用了公开 CSV 的前 200000 行，不是全量两个月。",
+    "Grafana 面板依赖 grafana-clickhouse-datasource 插件；若插件查询格式和当前版本不一致，以 ClickHouse 里的表为准。"
+  ],
+  "services": {
+    "clickhouse": true,
+    "flink_version": "1.18.1",
+    "flink": true,
+    "kafka_list": "__consumer_offsets\nevents-smoke\n",
+    "kafka": true,
+    "grafana": true,
+    "clickhouse_version": "24.8.14.39"
+  },
+  "python_batch": {
+    "elapsed_s": 0.474,
+    "duplicate_events": 106,
+    "windows": 33
+  },
+  "python_vs_clickhouse_sql": {
+    "pv": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 193824.0,
+      "sum_batch": 193824.0
+    },
+    "uv": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 60083.0,
+      "sum_batch": 60083.0
+    },
+    "cart_cnt": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 2714.0,
+      "sum_batch": 2714.0
+    },
+    "buy_cnt": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 3462.0,
+      "sum_batch": 3462.0
+    },
+    "dim_miss": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 66642.0,
+      "sum_batch": 66642.0
+    },
+    "pv_users": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 60083.0,
+      "sum_batch": 60083.0
+    },
+    "cart_users": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 1911.0,
+      "sum_batch": 1911.0
+    },
+    "buy_users": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 3130.0,
+      "sum_batch": 3130.0
+    },
+    "pv_to_cart_users": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 1684.0,
+      "sum_batch": 1684.0
+    },
+    "cart_to_buy_users": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 784.0,
+      "sum_batch": 784.0
+    },
+    "pv_to_buy_users": {
+      "windows_compared": 33,
+      "windows_missing_one_side": 0,
+      "windows_with_diff": 0,
+      "sum_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "sum_rt": 2383.0,
+      "sum_batch": 2383.0
+    },
+    "topn": {
+      "pairs_rt": 330,
+      "pairs_batch": 330,
+      "pairs_missing_one_side": 0,
+      "pairs_item_or_pv_mismatch": 0
+    }
+  },
+  "spark": {
+    "mem_available_kb_before": "2799584",
+    "pip_returncode": 0,
+    "pip_tail": "k (pyproject.toml): started\n  Building wheel for pyspark (pyproject.toml): finished with status 'done'\n  Created wheel for pyspark: filename=pyspark-3.5.3-py2.py3-none-any.whl size=317840689 sha256=a616a03bf0187c6fd5910855a288f62d55fe30b9b14e29591e236bdf772ffe68\n  Stored in directory: /home/ubuntu/.cache/pip/wheels/07/a0/a3/d24c94bf043ab5c7e38c30491199a2a11fef8d2584e6df7fb7\nSuccessfully built pyspark\nInstalling collected packages: py4j, pyspark\nSuccessfully installed py4j-0.10.9.7 pyspark-3.5.3\n",
+    "returncode": 0,
+    "output_tail": "{\"spark\": \"ok\", \"out\": \"/workspace/results/spark\"}\n26/09/28 07:34:57 WARN Utils: Your hostname, bench resolves to a loopback address: 127.0.0.1; using 172.30.0.2 instead (on interface enp0s4)\n26/09/28 07:34:57 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address\nSetting default log level to \"WARN\".\nTo adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).\n26/09/28 07:34:57 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable\n",
+    "status": "ok",
+    "vs_python_pv": {
+      "pv": {
+        "windows_compared": 33,
+        "windows_missing_one_side": 0,
+        "windows_with_diff": 0,
+        "sum_abs_diff": 0.0,
+        "max_abs_diff": 0.0,
+        "sum_rt": 193824.0,
+        "sum_batch": 193824.0
+      },
+      "uv": {
+        "windows_compared": 33,
+        "windows_missing_one_side": 0,
+        "windows_with_diff": 0,
+        "sum_abs_diff": 0.0,
+        "max_abs_diff": 0.0,
+        "sum_rt": 60083.0,
+        "sum_batch": 60083.0
+      },
+      "cart_cnt": {
+        "windows_compared": 33,
+        "windows_missing_one_side": 0,
+        "windows_with_diff": 0,
+        "sum_abs_diff": 0.0,
+        "max_abs_diff": 0.0,
+        "sum_rt": 2714.0,
+        "sum_batch": 2714.0
+      },
+      "buy_cnt": {
+        "windows_compared": 33,
+        "windows_missing_one_side": 0,
+        "windows_with_diff": 0,
+        "sum_abs_diff": 0.0,
+        "max_abs_diff": 0.0,
+        "sum_rt": 3462.0,
+        "sum_batch": 3462.0
+      }
+    }
+  },
+  "finished_at": "2026-09-28T07:35:03Z",
+  "late_pv_query": {
+    "sql": "SELECT run_id, count() AS late_events, countIf(behavior='pv') AS late_pv FROM dwd_late_events FINAL GROUP BY run_id",
+    "rows": [
+      {
+        "run_id": "disorder-15m",
+        "late_events": 47284,
+        "late_pv": 45856
+      },
+      {
+        "run_id": "disorder-3m",
+        "late_events": 1871,
+        "late_pv": 1796
+      },
+      {
+        "run_id": "recovery",
+        "late_events": 3399,
+        "late_pv": 3320
+      }
+    ],
+    "note": "baseline 不在结果里，因为该 run 没有迟到行。查询发生在 scripts/benchmark.py 写完 JSON 之后，表没有再跑 OPTIMIZE。"
+  },
+  "quantile_exact_followup": {
+    "when": "after scripts/benchmark.py, same tables, FINAL, run_id=baseline",
+    "ods": {
+      "p50_ms": 98,
+      "p99_ms": 213,
+      "function": "quantileExact"
+    },
+    "ads_pv_uv": {
+      "windows": 33,
+      "min_ms": 235,
+      "p50_ms": 338,
+      "p99_ms": 534,
+      "max_ms": 534,
+      "function": "quantileExact"
+    },
+    "note": "scripts/benchmark.py stored approximate quantile(); a repeat of that function moved ODS p99 between 211.09 and 221.09. min/max stayed 17/282."
+  }
+}

@@ -1,0 +1,23 @@
+target/
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.idea/
+.m2/
+results/
+grafana/plugins/
+# 原始 CSV、切出来的样本和维表不入库。用 replayer/prepare.py 下载。
+data/raw/
+data/sample/
+data/realistic/
+data/realistic-day/
+data/dim/*.csv
+# ClickHouse / Kafka 落盘和 Flink checkpoint 不入库。
+clickhouse/data/
+kafka/data/
+checkpoints/
+flink-checkpoints/
+flink-jobs/target/
+*.log
+.DS_Store

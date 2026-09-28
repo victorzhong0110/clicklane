@@ -1,0 +1,7 @@
+<clickhouse>
+  <!-- 挂载 config.d 会盖住镜像自带的 docker_related_config.xml，必须自己监听 0.0.0.0。 -->
+  <listen_host>0.0.0.0</listen_host>
+  <!-- 1024MB 容器 / 800MB 进程上限在两轮 70 万行的 FINAL 和 mutation 上会 Code 241。 -->
+  <max_server_memory_usage>2400000000</max_server_memory_usage>
+  <timezone>UTC</timezone>
+</clickhouse>

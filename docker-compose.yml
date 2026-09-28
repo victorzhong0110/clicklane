@@ -1,0 +1,130 @@
+name: pulseboard
+
+services:
+  kafka:
+    image: apache/kafka:3.7.1
+    container_name: pulseboard-kafka
+    ports:
+      - "19092:9094"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,HOST://0.0.0.0:9094,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,HOST://127.0.0.1:19092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_HEAP_OPTS: "-Xms256m -Xmx512m"
+      CLUSTER_ID: pulseboard-kraft-01
+    cpus: 0.50
+    mem_limit: 768m
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8-alpine
+    container_name: pulseboard-clickhouse
+    ports:
+      - "18123:8123"
+    environment:
+      TZ: UTC
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - ./clickhouse/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./clickhouse/config.d:/etc/clickhouse-server/config.d:ro
+      - ./clickhouse/users.d:/etc/clickhouse-server/users.d:ro
+      - clickhouse-data:/var/lib/clickhouse
+    cpus: 1.00
+    mem_limit: 3072m
+
+  flink-jobmanager:
+    image: flink:1.18.1-scala_2.12-java17
+    container_name: pulseboard-jobmanager
+    ports:
+      - "18081:8081"
+    entrypoint:
+      - /bin/bash
+      - -lc
+      - mkdir -p /opt/flink/checkpoints && chmod 777 /opt/flink/checkpoints && exec /docker-entrypoint.sh jobmanager
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: flink-jobmanager
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: flink-jobmanager
+        jobmanager.memory.process.size: 640m
+        jobmanager.memory.jvm-metaspace.size: 128m
+        jobmanager.memory.jvm-overhead.min: 64m
+        jobmanager.memory.jvm-overhead.max: 128m
+        jobmanager.memory.off-heap.size: 64m
+        parallelism.default: 2
+        state.backend: hashmap
+        state.checkpoints.dir: file:///opt/flink/checkpoints
+        execution.checkpointing.interval: 10000
+        execution.checkpointing.externalized-checkpoint-retention: RETAIN_ON_CANCELLATION
+        rest.flamegraph.enabled: true
+    volumes:
+      - ./flink-jobs/target:/opt/flink/jobs:ro
+      - flink-checkpoints:/opt/flink/checkpoints
+    cpus: 0.40
+    mem_limit: 900m
+    depends_on:
+      - kafka
+      - clickhouse
+
+  flink-taskmanager:
+    image: flink:1.18.1-scala_2.12-java17
+    container_name: pulseboard-taskmanager
+    entrypoint:
+      - /bin/bash
+      - -lc
+      - mkdir -p /opt/flink/checkpoints && chmod 777 /opt/flink/checkpoints && exec /docker-entrypoint.sh taskmanager
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: flink-jobmanager
+      TASK_MANAGER_NUMBER_OF_TASK_SLOTS: 4
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: flink-jobmanager
+        taskmanager.numberOfTaskSlots: 4
+        taskmanager.memory.process.size: 1280m
+        parallelism.default: 2
+        state.backend: hashmap
+        state.checkpoints.dir: file:///opt/flink/checkpoints
+    volumes:
+      - ./data/dim:/opt/data:ro
+      - flink-checkpoints:/opt/flink/checkpoints
+    cpus: 1.50
+    mem_limit: 1536m
+    depends_on:
+      - flink-jobmanager
+
+  grafana:
+    image: grafana/grafana:11.2.2
+    container_name: pulseboard-grafana
+    ports:
+      - "43123:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_USERS_DEFAULT_THEME: light
+      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: grafana-clickhouse-datasource
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/pulseboard.json
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - ./grafana/plugins:/var/lib/grafana/plugins:ro
+    cpus: 0.25
+    mem_limit: 384m
+    depends_on:
+      - clickhouse
+
+volumes:
+  flink-checkpoints:
+  clickhouse-data:

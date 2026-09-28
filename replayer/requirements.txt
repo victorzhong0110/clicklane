@@ -1,0 +1,2 @@
+kafka-python==2.2.15
+pytest==8.3.3

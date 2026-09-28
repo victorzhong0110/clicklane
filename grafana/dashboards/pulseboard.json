@@ -1,0 +1,162 @@
+{
+  "uid": "pulseboard",
+  "title": "PulseBoard 实时运营大盘",
+  "timezone": "utc",
+  "schemaVersion": 39,
+  "refresh": "10s",
+  "time": {"from": "2019-11-01T00:00:00.000Z", "to": "2019-11-02T00:00:00.000Z"},
+  "templating": {
+    "list": [
+      {
+        "name": "run_id",
+        "type": "query",
+        "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+        "definition": "SELECT DISTINCT run_id FROM pulseboard.ads_pv_uv ORDER BY run_id",
+        "query": "SELECT DISTINCT run_id FROM pulseboard.ads_pv_uv ORDER BY run_id",
+        "refresh": 2,
+        "includeAll": false,
+        "sort": 1,
+        "current": {"selected": true, "text": "baseline", "value": "baseline"}
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "PV / UV（10 分钟窗口）",
+      "gridPos": {"h": 8, "w": 16, "x": 0, "y": 0},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "fieldConfig": {"defaults": {"custom": {"spanNulls": true}}, "overrides": []},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 1,
+          "queryType": "table",
+          "rawSql": "SELECT window_start AS time, pv, uv FROM pulseboard.ads_pv_uv FINAL WHERE run_id = '${run_id}' ORDER BY window_start"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "迟到 PV",
+      "gridPos": {"h": 4, "w": 8, "x": 16, "y": 0},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 2,
+          "queryType": "table",
+          "rawSql": "SELECT countIf(behavior = 'pv') AS late_pv FROM pulseboard.dwd_late_events FINAL WHERE run_id = '${run_id}'"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "重复事件",
+      "gridPos": {"h": 4, "w": 8, "x": 16, "y": 4},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 2,
+          "queryType": "table",
+          "rawSql": "SELECT count() AS duplicates FROM pulseboard.dwd_duplicate_events FINAL WHERE run_id = '${run_id}'"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "barchart",
+      "title": "最近一个窗口的转化漏斗（用户数）",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 2,
+          "queryType": "table",
+          "rawSql": "SELECT step, users FROM (SELECT * FROM (SELECT '浏览用户' AS step, toUInt64(pv_users) AS users, 1 AS ord FROM pulseboard.ads_funnel FINAL WHERE run_id = '${run_id}' ORDER BY window_start DESC LIMIT 1) UNION ALL SELECT * FROM (SELECT '加购且不早于浏览', toUInt64(pv_to_cart_users), 2 FROM pulseboard.ads_funnel FINAL WHERE run_id = '${run_id}' ORDER BY window_start DESC LIMIT 1) UNION ALL SELECT * FROM (SELECT '购买且不早于浏览', toUInt64(pv_to_buy_users), 3 FROM pulseboard.ads_funnel FINAL WHERE run_id = '${run_id}' ORDER BY window_start DESC LIMIT 1)) ORDER BY ord"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "table",
+      "title": "最近窗口 Top 10 商品",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 2,
+          "queryType": "table",
+          "rawSql": "SELECT rank, item_id, category_code, pv FROM pulseboard.ads_top_items FINAL WHERE run_id = '${run_id}' AND window_start = (SELECT max(window_start) FROM pulseboard.ads_top_items FINAL WHERE run_id = '${run_id}') ORDER BY rank"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "类目 PV",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 1,
+          "queryType": "table",
+          "rawSql": "SELECT window_start AS time, category_code, pv FROM pulseboard.ads_category_pv FINAL WHERE run_id = '${run_id}' AND category_code IN (SELECT category_code FROM pulseboard.ads_category_pv FINAL WHERE run_id = '${run_id}' GROUP BY category_code ORDER BY sum(pv) DESC LIMIT 6) ORDER BY window_start"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "stat",
+      "title": "处理延迟 P50 / P99（毫秒）",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 16},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 2,
+          "queryType": "table",
+          "rawSql": "SELECT round(quantile(0.5)(toUnixTimestamp64Milli(inserted_at) - toUnixTimestamp64Milli(produce_time)), 1) AS p50_ms, round(quantile(0.99)(toUnixTimestamp64Milli(inserted_at) - toUnixTimestamp64Milli(produce_time)), 1) AS p99_ms FROM pulseboard.ods_events FINAL WHERE run_id = '${run_id}'"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "table",
+      "title": "实时 vs 离线（绝对差）",
+      "gridPos": {"h": 8, "w": 24, "x": 0, "y": 24},
+      "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {"type": "grafana-clickhouse-datasource", "uid": "clickhouse"},
+          "editorType": "sql",
+          "format": 2,
+          "queryType": "table",
+          "rawSql": "SELECT metric, count() AS windows, round(sum(abs_diff), 2) AS sum_abs_diff, round(max(abs_diff), 2) AS max_abs_diff FROM pulseboard.ads_reconcile FINAL WHERE run_id = '${run_id}' GROUP BY metric ORDER BY metric"
+        }
+      ]
+    }
+  ]
+}
